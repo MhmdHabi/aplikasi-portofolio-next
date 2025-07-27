@@ -11,7 +11,7 @@ const educationData = [
     description: "Complete general education with a focus on scientific material.",
   },
   {
-    title: "Universitas Indonesia",
+    title: "Universitas Dinamika Bangsa",
     jurusan: "Teknik Informatika",
     tahun: "2021 - 2025",
     description: "Study various aspects of computer science, including algorithms, data structures, software engineering, web programming and computer networks.",
