@@ -27,7 +27,7 @@ const projects: Project[] = [
     tags: ["Laravel", "Tailwind", "MySQL"],
     image: "/project/siakad.png",
     githubUrl: "#",
-    date: "2024-01-15",
+    date: "2024-06-20",
     featured: true,
   },
   {
@@ -39,7 +39,7 @@ const projects: Project[] = [
     tags: ["Laravel", "Tailwind", "MySQL"],
     image: "/project/gigi.png",
     githubUrl: "#",
-    date: "2024-01-15",
+    date: "2024-11-21",
     featured: true,
   },
   {
@@ -51,7 +51,7 @@ const projects: Project[] = [
     tags: ["React", "Tailwind"],
     image: "/project/ecommerce.png",
     githubUrl: "#",
-    date: "2024-01-15",
+    date: "2024-09-15",
     featured: true,
   },
   {
@@ -62,7 +62,7 @@ const projects: Project[] = [
     tags: ["Laravel", "Tailwind", "MySQL"],
     image: "/project/sosmed.png",
     githubUrl: "#",
-    date: "2024-01-15",
+    date: "2024-05-12",
     featured: true,
   },
 ];
@@ -118,8 +118,15 @@ const ProjectShowcase = () => {
             >
               {/* Gambar dan Hover */}
               <div className="relative h-52 overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-full " />
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+
+                {/* Featured badge di kiri atas */}
+                {project.featured && <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full z-30 shadow">★ Featured</div>}
+
+                {/* Overlay hover blur */}
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm translate-y-[-100%] group-hover:translate-y-0 transition-all duration-500 z-10" />
+
+                {/* GitHub icon */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                   <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-white text-4xl">
                     <FaGithub />
@@ -129,41 +136,53 @@ const ProjectShowcase = () => {
 
               {/* Konten */}
               <div className="p-5 space-y-4">
-                {/* Judul & Deskripsi */}
-                <div className="flex flex-col gap-2">
+                {/* Judul dan Kategori */}
+                <div className="flex items-start justify-between">
                   <h3 className="text-xl font-bold">{project.title}</h3>
-
-                  <div className="">
-                    <AnimatePresence mode="wait">
-                      {!isExpanded ? (
-                        <motion.p
-                          key="collapsed"
-                          className="text-gray-300 text-sm line-clamp-3 text-justify"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {project.description}
-                        </motion.p>
-                      ) : (
-                        <motion.p key="expanded" className="text-gray-300 text-sm text-justify" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }}>
-                          {project.description}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <button onClick={() => setExpandedProjectId(isExpanded ? null : project.id)} className="text-blue-400 text-xs hover:underline w-fit">
-                    {isExpanded ? "Show Less" : "Read More"}
-                  </button>
+                  <span className="bg-blue-700/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium">{project.category}</span>
                 </div>
 
-                {/* Teknologi */}
-                <div className="flex flex-wrap gap-3 text-2xl">
-                  {project.tags.map((tag) => (
-                    <div key={tag}>{getTechIcon(tag)}</div>
-                  ))}
+                {/* Tech Stack dan Tanggal */}
+                <div className="flex items-center justify-between flex-wrap">
+                  <div className="flex flex-wrap gap-3 text-2xl">
+                    {project.tags.map((tag) => (
+                      <div key={tag} className="hover:scale-110 transition-transform">
+                        {getTechIcon(tag)}
+                      </div>
+                    ))}
+                  </div>
+                  <span className="text-xs text-gray-400 mt-2 sm:mt-0">
+                    {new Date(project.date).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </span>
+                </div>
+
+                {/* Deskripsi */}
+                <div>
+                  <AnimatePresence mode="wait">
+                    {!isExpanded ? (
+                      <motion.p
+                        key="collapsed"
+                        className="text-gray-300 text-sm line-clamp-3 text-justify"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {project.description}
+                      </motion.p>
+                    ) : (
+                      <motion.p key="expanded" className="text-gray-300 text-sm text-justify" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }}>
+                        {project.description}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                  <button onClick={() => setExpandedProjectId(isExpanded ? null : project.id)} className="text-blue-400 text-xs hover:underline mt-2 inline-block">
+                    {isExpanded ? "Show Less" : "Read More"}
+                  </button>
                 </div>
               </div>
             </motion.div>
