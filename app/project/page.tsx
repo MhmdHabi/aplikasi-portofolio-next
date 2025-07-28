@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaReact, FaLaravel, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiMysql, SiPostgresql, SiTypescript, SiExpress } from "react-icons/si";
+import { TbBrandFramerMotion } from "react-icons/tb";
 import Link from "next/link";
 
 type Project = {
@@ -48,7 +49,7 @@ const projects: Project[] = [
     description:
       "Website ecommerce DarkMoon adalah website yang dirancang menggunakan React Js dan Tailwind CSS. Dengan tema yang menarik dan responsif, situs ini memungkinkan pengguna untuk menemukan produk yang sesuai dengan kebutuhan mereka.",
     category: "Frontend Development",
-    tags: ["React", "Tailwind"],
+    tags: ["React", "Tailwind", "Frammer"],
     image: "/project/ecommerce.png",
     githubUrl: "#",
     date: "2024-09-15",
@@ -65,6 +66,30 @@ const projects: Project[] = [
     date: "2024-05-12",
     featured: true,
   },
+  {
+    id: "5",
+    title: "Shanum Bakery",
+    description:
+      "Website Shanum Bakery adalah sebuah website yang berisi landing page untuk memperkenalkan produk-produk roti dan kue dari Shanum Bakery. Landing page ini dirancang dengan tampilan menarik dan responsif, menampilkan informasi seputar produk, promo, dan identitas brand untuk menarik minat pengunjung.",
+    category: "Frontend Development",
+    tags: ["React", "Tailwind", "Frammer"],
+    image: "/project/shanum.png",
+    githubUrl: "#",
+    date: "2025-01-12",
+    featured: true,
+  },
+  {
+    id: "6",
+    title: "Kennedy Classifier",
+    description:
+      "Website Kennedy Classifier adalah website yang dirancang untuk melakukakn survei gigi, module pembelajaran dan simulasi 3D. website ini menggunakan React Js dan Tailwind CSS. Dimana website ini dibuat dengan tujuan mengedukasi tentang kesehatan gigi masyarakat dan praktek langsung dengan simulasi.",
+    category: "Web Development",
+    tags: ["React", "Tailwind", "TypeScript", "ExpressJs", "PostgreSQL", "Frammer"],
+    image: "/project/kennedy.png",
+    githubUrl: "#",
+    date: "2025-07-15",
+    featured: true,
+  },
 ];
 
 const getTechIcon = (tag: string) => {
@@ -76,6 +101,7 @@ const getTechIcon = (tag: string) => {
     PostgreSQL: <SiPostgresql className="text-blue-400" />,
     TypeScript: <SiTypescript className="text-blue-500" />,
     ExpressJs: <SiExpress className="text-gray-200" />,
+    Frammer: <TbBrandFramerMotion className="text-yellow-200" />,
   };
   return icons[tag] || <span className="text-white text-sm">{tag}</span>;
 };
@@ -118,7 +144,7 @@ const ProjectShowcase = () => {
             >
               {/* Gambar dan Hover */}
               <div className="relative h-52 overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                <img src={project.image} alt={project.title} className="w-full h-full " />
 
                 {/* Featured badge di kiri atas */}
                 {project.featured && <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full z-30 shadow">★ Featured</div>}

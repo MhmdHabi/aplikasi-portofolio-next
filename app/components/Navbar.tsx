@@ -88,7 +88,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <button onClick={() => scrollToSection("#home")} className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent hover:from-cyan-300 hover:to-blue-300 transition-all duration-300">
-              Portfolio
+              <img src="/assets/logo.png" alt="Portfolio Logo" width={40} height={40} className="hover:opacity-80 transition-all duration-300" />
             </button>
           </div>
 
@@ -110,6 +110,18 @@ export default function Navbar() {
                 );
               })}
             </div>
+          </div>
+
+          {/* Download CV Button */}
+          <div className="hidden md:flex items-center">
+            <a
+              href="https://drive.google.com/file/d/14939OlW5rUi3_F93pAyI0rv8OMRGg0WC/view?usp=drive_link"
+              download
+              target="_blank"
+              className="relative px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 bg-[length:200%_100%] bg-left hover:bg-right rounded-lg transition-all duration-500"
+            >
+              Download CV
+            </a>
           </div>
 
           {/* Mobile menu button */}

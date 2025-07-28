@@ -67,7 +67,7 @@ export default function SkillsPage() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <div id="skills" className="min-h-screen bg-black text-white py-20 px-6 lg:px-12 overflow-hidden">
+    <div id="skills" className="min-h-screen bg-black text-white py-10 px-6 lg:px-12 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>

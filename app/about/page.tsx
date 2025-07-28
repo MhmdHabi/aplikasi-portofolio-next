@@ -33,8 +33,9 @@ const AboutPage = () => {
 
           {/* Download CV Button */}
           <Link
-            href="/cv.pdf"
+            href="https://drive.google.com/file/d/14939OlW5rUi3_F93pAyI0rv8OMRGg0WC/view?usp=drive_link"
             download
+            target="_blank"
             className="inline-block text-md font-medium text-white rounded-xl bg-zinc-900/60 border border-white hover:border-cyan-400 hover:text-cyan-300 backdrop-blur-md px-5 py-2 transition-all duration-300 shadow-md hover:shadow-cyan-400/20"
           >
             📄 Download CV

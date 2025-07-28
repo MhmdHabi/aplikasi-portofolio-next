@@ -60,7 +60,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-cyan-400 mb-4">Navigasi</h3>
             <ul className="space-y-2">
-              {["Home", "About", "Projects", "Skills", "Contact"].map((item) => (
+              {["Home", "About", "Skills", "Projects", "Education"].map((item) => (
                 <li key={item}>
                   <button onClick={(e) => handleScroll(e, item)} className="text-white/90 hover:text-cyan-400 transition duration-300">
                     {item}
@@ -75,17 +75,17 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-cyan-400 mb-4">Kontak</h3>
             <p className="text-white">
               Email:{" "}
-              <Link href="mailto:youremail@example.com" className="text-white/90 hover:text-cyan-400 transition duration-300">
-                youremail@example.com
+              <Link href="" className="text-white/90 hover:text-cyan-400 transition duration-300">
+                muhammadhabi01@gmail.com
               </Link>
             </p>
             <p className="mt-2 text-white">
               Telepon:{" "}
-              <Link href="tel:+628123456789" className="text-white/90 hover:text-cyan-400 transition duration-300">
-                +62 812-3456-789
+              <Link href="" className="text-white/90 hover:text-cyan-400 transition duration-300">
+                +62 812-7189-1733
               </Link>
             </p>
-            <p className="mt-2 text-white/90">Alamat: Jakarta, Indonesia</p>
+            <p className="mt-2 text-white/90">Alamat: Jambi, Indonesia</p>
           </div>
         </div>
 
