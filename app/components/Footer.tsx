@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaInstagram, FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useCallback } from "react";
 
 export default function Footer() {
@@ -41,17 +41,14 @@ export default function Footer() {
             <h2 className="text-2xl font-bold text-cyan-400 mb-4">MyPortfolio</h2>
             <p className="text-white/90">Membangun solusi digital modern dengan semangat dan kreativitas.</p>
             <div className="flex space-x-4 mt-4">
-              <Link href="https://instagram.com" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
+              <Link href="https://www.instagram.com/mhmdhabi_/" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
                 <FaInstagram size={20} />
               </Link>
-              <Link href="https://linkedin.com" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
+              <Link href="https://www.linkedin.com/in/muhammadhabi/" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
                 <FaLinkedin size={20} />
               </Link>
-              <Link href="https://github.com" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
+              <Link href="https://github.com/MhmdHabi" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
                 <FaGithub size={20} />
-              </Link>
-              <Link href="https://facebook.com" target="_blank" className="text-white hover:text-cyan-400 transition duration-300">
-                <FaFacebook size={20} />
               </Link>
             </div>
           </div>

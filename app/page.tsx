@@ -11,6 +11,7 @@ import EducationExperience from "./education/page";
 import ProjectShowcase from "./project/page";
 import Navbar from "./components/Navbar";
 import ScrollPage from "./scroll-velocity/Scroll-Velocity";
+import ContactPage from "./contact/page";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -24,6 +25,7 @@ export default function Home() {
       <SkillsPage />
       <ProjectShowcase />
       <EducationExperience />
+      <ContactPage />
       <Footer />
 
       {/* Chat Button */}
