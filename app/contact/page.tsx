@@ -187,26 +187,20 @@ export default function ContactPage() {
                   {
                     icon: FiMail,
                     title: "Email",
-                    value: "hello@example.com",
+                    value: "muhammadhabi01@gmail.com",
                     description: "Send us an email anytime",
                   },
                   {
                     icon: FiPhone,
                     title: "Phone",
-                    value: "+1 (555) 123-4567",
+                    value: "+62 812 7189 1733",
                     description: "Mon-Fri from 8am to 6pm",
                   },
                   {
                     icon: FiMapPin,
                     title: "Address",
-                    value: "123 Business St, Suite 100",
-                    description: "San Francisco, CA 94107",
-                  },
-                  {
-                    icon: FiClock,
-                    title: "Business Hours",
-                    value: "Mon - Fri: 8:00 AM - 6:00 PM",
-                    description: "Weekend: By appointment",
+                    value: "Sarolangun, Singkut",
+                    description: "Desa Payolebar",
                   },
                 ].map((info, index) => (
                   <motion.div

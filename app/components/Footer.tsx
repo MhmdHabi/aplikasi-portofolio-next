@@ -57,7 +57,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-cyan-400 mb-4">Navigasi</h3>
             <ul className="space-y-2">
-              {["Home", "About", "Skills", "Projects", "Education"].map((item) => (
+              {["Home", "About", "Skills", "Projects", "Education", "Contact"].map((item) => (
                 <li key={item}>
                   <button onClick={(e) => handleScroll(e, item)} className="text-white/90 hover:text-cyan-400 transition duration-300">
                     {item}
