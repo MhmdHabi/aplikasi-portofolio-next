@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+"use client";
+
+import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { FaReact, FaNodeJs, FaGitAlt, FaLaravel, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiTailwindcss, SiMysql, SiJavascript, SiPostman, SiPrisma } from "react-icons/si";
