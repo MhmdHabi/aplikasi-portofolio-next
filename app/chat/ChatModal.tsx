@@ -2,16 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface ChatModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-interface ChatMessage {
-  role: "user" | "assistant";
-  content: string;
-}
+import { ChatMessage, ChatModalProps } from "./chatTypes";
 
 export default function ChatModal({ isOpen, onClose }: ChatModalProps) {
   const [input, setInput] = useState("");
@@ -49,33 +40,27 @@ export default function ChatModal({ isOpen, onClose }: ChatModalProps) {
       });
 
       const data = await response.json();
-      console.log("🛠️ GROQ response data:", data);
-
-      if (!response.ok) {
-        console.error("❌ GROQ API responded with status", response.status, data);
-        throw new Error(data.error?.message || "Unknown error from GROQ");
-      }
+      console.log("🧠 Groq AI response:", data);
 
       const aiContent = data.choices?.[0]?.message?.content;
       if (typeof aiContent === "string" && aiContent.trim()) {
         setMessages((prev) => [...updatedMessages, { role: "assistant", content: aiContent.trim() }]);
       } else {
-        console.warn("⚠️ No valid content in data.choices:", data);
         setMessages((prev) => [
           ...updatedMessages,
           {
             role: "assistant",
-            content: "Maaf, respons tidak tersedia saat ini.",
+            content: "⚠️ Maaf, tidak ada respons yang valid dari AI.",
           },
         ]);
       }
     } catch (err) {
-      console.error("🚨 Error fetching AI reply:", err);
+      console.error("🚨 Error fetching Groq AI response:", err);
       setMessages((prev) => [
         ...updatedMessages,
         {
           role: "assistant",
-          content: "⚠️ Maaf, terjadi kesalahan. Silakan coba lagi nanti.",
+          content: "⚠️ Terjadi kesalahan. Silakan coba lagi nanti.",
         },
       ]);
     } finally {

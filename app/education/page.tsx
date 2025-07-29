@@ -2,40 +2,7 @@
 
 import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-const educationData = [
-  {
-    title: "SMA Negeri 2 Sarolangun",
-    jurusan: "Ilmu Pengetahuan Alam",
-    tahun: "2018 - 2021",
-    description: "Complete general education with a focus on scientific material.",
-  },
-  {
-    title: "Universitas Dinamika Bangsa",
-    jurusan: "Teknik Informatika",
-    tahun: "2021 - 2025",
-    description: "Study various aspects of computer science, including algorithms, data structures, software engineering, web programming and computer networks.",
-    gpa: "3.95 / 4.00",
-  },
-];
-
-const experienceData = [
-  {
-    title: "Study of Independent Web Developer",
-    pt: "PT Amanah Karya Indonesia",
-    pekerjaan: "WFH",
-    tahun: "February - June 2024",
-    description: "During this program, I learned the latest technologies and tools in web development, including HTML, CSS, JavaScript, and frameworks like Laravel.",
-  },
-  {
-    title: "Study of Independent Frontend and Backend Bevelopment ",
-    pt: "Dicoding Indonesia",
-    pekerjaan: "WFH",
-    tahun: "September - December 2024",
-    description:
-      "Participant of the Independent Study Program at Dicoding Indonesia - Frontend & Backend Development. Learned JavaScript ES6, React JS, Express JS, and the Frontend Web Expert module. This program strengthened my skills in building modern web applications from both the frontend and backend sides.",
-  },
-];
+import { educationData, experienceData } from "./educationExperienceData";
 
 export default function EducationExperience() {
   return (
@@ -84,7 +51,7 @@ export default function EducationExperience() {
                 <motion.div key={index} className="mb-10 pl-10 relative" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 }} viewport={{ once: true }}>
                   <div className="absolute left-0 top-1 w-6 h-6 bg-yellow-500 rounded-full border-4 border-black shadow-yellow-400/20 shadow"></div>
                   <h4 className="text-lg font-bold text-yellow-300">{item.title}</h4>
-                  <p className="text-sm  text-white">
+                  <p className="text-sm text-white">
                     {item.pt} - <span className="italic text-sm text-gray-400">{item.pekerjaan}</span>
                   </p>
                   <p className="text-sm italic text-gray-400">{item.tahun}</p>

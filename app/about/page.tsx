@@ -4,9 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Lanyard from "../components/Lanyard/Lanyard";
-
-const paragraph =
-  "🎓 I am a graduate with a Bachelor's degree (S1) in Informatics Engineering from Universitas Dinamika Bangsa Jambi.I have a strong passion for 💻 web development, particularly Fullstack Developer. I am skilled in programming languages such as 🐘 PHP and ⚡ JavaScript, and proficient in using frameworks like 🛠️ Laravel for backend and ⚛️ React JS for frontend development. Beyond technical expertise, I am also experienced in working in teams 🤝 and highly value collaboration to achieve shared goals.";
+import aboutParagraph from "./aboutParagraph";
 
 const AboutPage = () => {
   return (
@@ -24,7 +22,7 @@ const AboutPage = () => {
           <h2 className="text-3xl font-bold mb-4 flex items-center space-x-2">About Me</h2>
 
           <p className="text-lg leading-relaxed text-justify break-words overflow-hidden mb-6">
-            {paragraph.split(" ").map((word, index) => (
+            {aboutParagraph.split(" ").map((word, index) => (
               <motion.span key={index} initial={{ color: "#6B7280" }} whileInView={{ color: "#ffffff" }} transition={{ duration: 0.3, delay: index * 0.02 }} viewport={{ once: false, amount: 0.5 }} className="inline">
                 {word + " "}
               </motion.span>

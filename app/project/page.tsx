@@ -6,91 +6,8 @@ import { FaReact, FaLaravel, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiMysql, SiPostgresql, SiTypescript, SiExpress } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import Link from "next/link";
-
-type Project = {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  tags: string[];
-  image: string;
-  githubUrl: string;
-  date: string;
-  featured: boolean;
-};
-
-const projects: Project[] = [
-  {
-    id: "1",
-    title: "SIAKAD",
-    description: "Membuat aplikasi sistem informasi akademik (SIAKAD) dengan menggunakan framework laravel, dengan 3 aktor yaitu admin, mahasiswa, dan dosen.",
-    category: "Web Development",
-    tags: ["Laravel", "Tailwind", "MySQL"],
-    image: "/project/siakad.png",
-    githubUrl: "#",
-    date: "2024-06-20",
-    featured: true,
-  },
-  {
-    id: "2",
-    title: "Ecc Dentch",
-    description:
-      "Website Survei Gigi adalah platform digital yang menyediakan fitur survei kondisi gigi, di mana pengguna dapat mengisi formulir untuk mengetahui kondisi kesehatan gigi mereka. Setelah menyelesaikan survei, pengguna dapat langsung melihat hasil analisis survei yang memberikan gambaran awal tentang kesehatan gigi. Selain itu, website ini juga menyediakan berbagai artikel informatif seputar kesehatan gigi dan mulut untuk menambah wawasan dan menunjang perawatan gigi secara mandiri.",
-    category: "Web Development",
-    tags: ["Laravel", "Tailwind", "MySQL"],
-    image: "/project/gigi.png",
-    githubUrl: "#",
-    date: "2024-11-21",
-    featured: true,
-  },
-  {
-    id: "3",
-    title: "DarkMoon",
-    description:
-      "Website ecommerce DarkMoon adalah website yang dirancang menggunakan React Js dan Tailwind CSS. Dengan tema yang menarik dan responsif, situs ini memungkinkan pengguna untuk menemukan produk yang sesuai dengan kebutuhan mereka.",
-    category: "Frontend Development",
-    tags: ["React", "Tailwind", "Frammer"],
-    image: "/project/ecommerce.png",
-    githubUrl: "#",
-    date: "2024-09-15",
-    featured: true,
-  },
-  {
-    id: "4",
-    title: "Sosmed",
-    description: "Aplikasi ini merupakan aplikasi sosial media dimana user bisa upload postingan, like, memberikan komentar, bisa juga melakukan bookmark dan juga user bisa melakukan follow.",
-    category: "Web Development",
-    tags: ["Laravel", "Tailwind", "MySQL"],
-    image: "/project/sosmed.png",
-    githubUrl: "#",
-    date: "2024-05-12",
-    featured: true,
-  },
-  {
-    id: "5",
-    title: "Shanum Bakery",
-    description:
-      "Website Shanum Bakery adalah sebuah website yang berisi landing page untuk memperkenalkan produk-produk roti dan kue dari Shanum Bakery. Landing page ini dirancang dengan tampilan menarik dan responsif, menampilkan informasi seputar produk, promo, dan identitas brand untuk menarik minat pengunjung.",
-    category: "Frontend Development",
-    tags: ["React", "Tailwind", "Frammer"],
-    image: "/project/shanum.png",
-    githubUrl: "#",
-    date: "2025-01-12",
-    featured: true,
-  },
-  {
-    id: "6",
-    title: "Kennedy Classifier",
-    description:
-      "Website Kennedy Classifier adalah website yang dirancang untuk melakukakn survei gigi, module pembelajaran dan simulasi 3D. website ini menggunakan React Js dan Tailwind CSS. Dimana website ini dibuat dengan tujuan mengedukasi tentang kesehatan gigi masyarakat dan praktek langsung dengan simulasi.",
-    category: "Web Development",
-    tags: ["React", "Tailwind", "TypeScript", "ExpressJs", "PostgreSQL", "Frammer"],
-    image: "/project/kennedy.png",
-    githubUrl: "#",
-    date: "2025-07-15",
-    featured: true,
-  },
-];
+import projects from "./ProjectData";
+import { Project } from "./ProjectTypes";
 
 const getTechIcon = (tag: string) => {
   const icons: Record<string, JSX.Element> = {
@@ -144,15 +61,9 @@ const ProjectShowcase = () => {
             >
               {/* Gambar dan Hover */}
               <div className="relative h-52 overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-full " />
-
-                {/* Featured badge di kiri atas */}
+                <img src={project.image} alt={project.title} className="w-full h-full" />
                 {project.featured && <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-0.5 rounded-full z-30 shadow">★ Featured</div>}
-
-                {/* Overlay hover blur */}
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm translate-y-[-100%] group-hover:translate-y-0 transition-all duration-500 z-10" />
-
-                {/* GitHub icon */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                   <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-white text-4xl">
                     <FaGithub />
@@ -162,13 +73,11 @@ const ProjectShowcase = () => {
 
               {/* Konten */}
               <div className="p-5 space-y-4">
-                {/* Judul dan Kategori */}
                 <div className="flex items-start justify-between">
                   <h3 className="text-xl font-bold">{project.title}</h3>
                   <span className="bg-blue-700/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium">{project.category}</span>
                 </div>
 
-                {/* Tech Stack dan Tanggal */}
                 <div className="flex items-center justify-between flex-wrap">
                   <div className="flex flex-wrap gap-3 text-2xl">
                     {project.tags.map((tag) => (
@@ -186,7 +95,6 @@ const ProjectShowcase = () => {
                   </span>
                 </div>
 
-                {/* Deskripsi */}
                 <div>
                   <AnimatePresence mode="wait">
                     {!isExpanded ? (
