@@ -114,7 +114,7 @@ const ProjectShowcase = () => {
   const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
   return (
-    <div id="projects" className="min-h-screen bg-black text-white px-5 lg:px-8 py-10">
+    <div id="projects" className="min-h-screen bg-black text-white px-5 lg:px-8 py-20">
       <h1 className="text-4xl font-bold text-center mb-10">My Projects</h1>
 
       <div className="flex justify-center mb-8 flex-wrap gap-3">
